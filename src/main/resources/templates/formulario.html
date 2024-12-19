@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Empleado</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4" th:text="${empleado.id == null ? 'Agregar Nuevo Empleado' : 'Editar Empleado'}"></h1>
+        <form th:action="@{/empleados}" method="post" th:object="${empleado}">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-control" th:field="*{nombre}" required/>
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" id="apellido" class="form-control" th:field="*{apellido}" required/>
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" id="edad" class="form-control" th:field="*{edad}" required/>
+            </div>
+            <div class="mb-3">
+                <label for="numeroCelular" class="form-label">Número de Celular</label>
+                <input type="text" id="numeroCelular" class="form-control" th:field="*{numeroCelular}" required/>
+            </div>
+            <div class="mb-3">
+                <label for="contrasena" class="form-label">Contraseña</label>
+                <input type="password" id="contrasena" class="form-control" th:field="*{contrasena}" required/>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
